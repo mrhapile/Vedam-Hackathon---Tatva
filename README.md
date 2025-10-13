@@ -1,30 +1,48 @@
-# TATVA’25 — The Cosmic Yagna (HTML + CSS Only)
+# 🎓 Vedam College — Event Registration Page
 
-A single‑page, immersive landing built with only HTML and CSS. It evokes "Vedic Futurism" with a lotus preloader, layered nebula background, glass navigation, shimmering gold hero title, decorative countdown rings, tarot‑style event cards with hover previews, a CSS‑only unfolding registration form, and an animated star‑river footer.
 
-## Quick Start
+### TEAM BURIIIII ####
 
-1. Open `index.html` directly in your browser (no build tools required).
-2. For best fonts, keep internet on (Google Fonts are linked). Everything else is local CSS.
 
-## Files
+### 👨‍💻 Captain: Akash Anand
+### 👩‍💻 Team Members:
+- Aditya Bahuguna
+- Shivansh Ojha
+- Divyanshi Mewara
+- Aadi Shah
+- Sirwagya Shekhar
 
-- `index.html` — structure and minimal accessibility hooks
-- `styles.css` — all visuals, animations, and responsive layout
-- `assets/` — optional posters or GIFs for event cards (`poster-*.webp`, `preview-*.gif`)
+---
 
-## Notes & Constraints
+## 📘 Project Overview
 
-- This version intentionally uses no JavaScript for logic; countdown rings are decorative.
-- The registration form unfolds via the CSS checkbox technique and submits with default browser behavior.
-- Heavy motion respects `prefers-reduced-motion`.
-- Replace placeholder asset URLs in inline `style="--poster:...; --preview:...;"` with your images/GIFs to see hover previews.
+This project is a **responsive college event registration and management page** built using **HTML** and **Tailwind CSS**.  
+It’s designed for **Vedam College** to display upcoming events and manage participant registrations efficiently.
 
-## Customize
+The interface draws inspiration from modern university portals like *Mood Indigo* or *Oasis (BITS Pilani)*, focusing on **clean typography**, **dark theme aesthetics**, and **easy navigation**.
 
-- Edit colors and easing in `:root` tokens inside `styles.css`.
-- Change section copy in `index.html` and add/remove event cards by duplicating an `.card`.
+---
 
-## Credits
+## ✨ Features
 
-Design and implementation scaffold for Vedam Hackathon — TATVA’25.
+- 🎨 **Modern, Responsive Design** — built with Tailwind CSS for full adaptability across devices.  
+- 🔍 **Search Bar** — allows searching participants by name, email, or college ID.  
+- 📅 **Upcoming Events Table** — displays key details like event name, date, time, and location.  
+- 🧭 **Navigation Bar** — includes sections for Home, Events, Admissions, Academics, Research, and About.  
+- 🔔 **Notification Icon** and **User Avatar** — to simulate a logged-in dashboard feel.  
+- ⚙️ **Footer Section** — includes Privacy Policy, Terms of Service, and Contact links.
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|-------------|----------|
+| **HTML5** | Structure and markup |
+| **Tailwind CSS** | Styling and responsive layout |
+| **Google Fonts** | Typography (Plus Jakarta Sans, Noto Sans) |
+
+---
+
+## 📂 Project Structure
+
