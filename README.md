@@ -296,9 +296,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 <div align="center">
 
 **TATVA 2025 Tech Fest**  
-📍 Ajeenkya DY Patil University  
-📧 contact@tatva2025.com  
-🌐 [tatva2025.com](https://tatva2025.com)
+📍 Vedam School of Technology 
+<!-- 📧 contact@tatva2025.com  
+🌐 [tatva2025.com](https://tatva2025.com) -->
 
 ---
 
