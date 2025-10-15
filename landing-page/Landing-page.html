@@ -113,135 +113,6 @@
             letter-spacing: 2px;
         }
         
-        .timeline-container {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, #e37119, transparent);
-        }
-        
-        .timeline-dots {
-            display: flex;
-            justify-content: space-around;
-            position: relative;
-            margin-bottom: 30px;
-        }
-        
-        .timeline-dot {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #ffd700;
-            position: relative;
-            z-index: 2;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-        
-        .timeline-dot:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-        }
-        
-        .timeline-dot::after {
-            content: attr(data-year);
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #e37119;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-        }
-        
-        .timeline-milestones {
-            position: relative;
-        }
-        
-        .milestone {
-            opacity: 0;
-            height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .milestone:target {
-            opacity: 1;
-            height: auto;
-            padding: 30px;
-            margin: 20px 0;
-            background: rgba(10, 10, 20, 0.8);
-            border: 1px solid #e37119;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(227, 113, 25, 0.3);
-        }
-        
-        .milestone-heading {
-            font-family: 'Orbitron', sans-serif;
-            color: #e37119;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .milestone-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #e37119;
-        }
-        
-        .milestone-content {
-            color: #ccc;
-            line-height: 1.6;
-        }
-        
-        .sanskrit-style {
-            font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 1px;
-            font-weight: 500;
-            color: #ffd700;
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
-        }
-        
-        /* Responsive Timeline */
-        @media (max-width: 768px) {
-            .timeline-container::before {
-                left: 30px;
-            }
-            
-            .timeline-dots {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 50px;
-                margin-left: 30px;
-            }
-            
-            .timeline-dot::after {
-                top: 0;
-                left: 40px;
-                transform: none;
-            }
-        }
         #fest-mode:checked + .festival-toggle-label::before {
             transform: scale(1.2);
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
@@ -262,57 +133,12 @@
             animation: shimmer 3s infinite;
         }
         
-        @keyframes shimmer {
-            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
-            50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.7); }
-            100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
-        }
-        
-        @keyframes flicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% { filter: brightness(1.5) drop-shadow(0 0 15px gold); }
-            20%, 24%, 55% { filter: brightness(1.2) drop-shadow(0 0 5px gold); }
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Ensure hero section appears first */
-        #home {
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Gallery section positioning */
-        #gallery {
-            position: relative;
-            z-index: 0;
-        }
-
-        body {
-            font-family: 'Orbitron', sans-serif;
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-        
-        /* Ensure page starts at top */
-        html, body {
-            scroll-padding-top: 0;
-        }
-
-        h1, h2, h3, .logo-font {
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.05em;
-        }
-
         a {
             color: inherit;
             text-decoration: none;
@@ -602,11 +428,8 @@
             width: 100%;
             max-width: 1100px;
             margin-left: auto;
+            padding: 0 1.5rem;
             margin-right: auto;
-        }
-        
-        section {
-            padding: 5rem 0;
         }
 
         .section-title {
@@ -716,11 +539,18 @@
         }
         
         #menu-toggle ~ #mobile-menu {
-            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
         
         #menu-toggle:checked ~ #mobile-menu {
-            display: block;
+            max-height: 100vh; /* A large enough value */
+        }
+
+        #mobile-menu {
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(5px);
         }
 
         .close-icon {
@@ -780,6 +610,7 @@
         #home h1 {
             font-size: 5rem;
             font-weight: bold;
+            line-height: 1.1;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -1202,22 +1033,6 @@
             font-family: 'Noto Sans', sans-serif;
             color: #e37119;
             font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 10px rgba(227, 113, 25, 0.5);
-        }
-        
-        /* Festival Mode Toggle */
-        .festival-mode-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        .festival-toggle {
-            position: absolute;
-            opacity: 0;
-            height: 0;
-            width: 0;
         }
         .festival-toggle-label {
             display: flex;
@@ -1246,10 +1061,6 @@
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         }
         
-        /* Festival Mode Styles */
-        #fest-mode:checked ~ * .diya {
-            filter: brightness(1.5) drop-shadow(0 0 10px gold);
-        }
         #fest-mode:checked ~ * .diya::after {
             animation: flicker 2s infinite alternate;
         }
@@ -1265,11 +1076,6 @@
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
         #fest-mode:checked ~ * .timeline-dot {
-            background: gold;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-        }
-        
-        @keyframes shimmer {
             0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
             50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.7); }
             100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
@@ -1277,67 +1083,8 @@
         
         @keyframes flicker {
             0%, 18%, 22%, 25%, 53%, 57%, 100% { filter: brightness(1.5) drop-shadow(0 0 15px gold); }
-            20%, 24%, 55% { filter: brightness(1.2) drop-shadow(0 0 5px gold); }
         }
         
-        @media (max-width: 768px) {
-            .timeline {
-                height: 80px;
-            }
-            .dot-year {
-                font-size: 0.8rem;
-                top: -25px;
-            }
-            .sanskrit-heading {
-                font-size: 1.4rem;
-            }
-        }
-        
-        /* Gallery Section */
-        #gallery { 
-            background-color: #000;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            padding: 0 2rem;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        .gallery-column {
-            display: grid;
-            gap: 1rem;
-        }
-        .gallery-column img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            transition: transform 0.3s;
-        }
-        .gallery-column img:hover {
-            transform: scale(1.05);
-        }
-        
-        @media (max-width: 1024px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            #gallery {
-                padding: 0 1rem;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            #gallery {
-                padding: 0 0.5rem;
-            }
-        }
-
         /* Team Section */
         .team-grid {
             display: flex;
@@ -1427,6 +1174,12 @@
         }
         .sponsor-logo:hover {
             filter: grayscale(0);
+        }
+        @media (max-width: 767px) {
+            .sponsor-logo {
+                margin: 0 1.5rem;
+                height: 2.5rem;
+            }
         }
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -1520,21 +1273,11 @@
             padding-top: 1.5rem;
             text-align: center;
             color: #6b7280;
-        }
-        .container {
-            margin: 0 auto;
-            width: 800px;
         } 
 
         /* Media Queries for Responsiveness */
         @media (min-width: 640px) {
-            .container {
-                max-width: 640px;
-            }
             #events .events-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .team-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -1544,135 +1287,12 @@
                 padding: 6rem 0;
             }
             .container {
-                max-width: 768px;
-            }
-            #home h1 {
-                font-size: 6rem;
             }
             #home p {
                 font-size: 1.25rem;
             }
             #venue .venue-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            #events .events-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .footer-content {
-                flex-direction: row;
-                text-align: left;
-            }
-            .social-links {
-                margin-top: 0;
-            }
-            #desktop-nav {
-                display: flex;
-            }
-            .nav-register-btn {
-                display: inline-block;
-            }
-            #menu-toggle-label {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero-left {
-                align-items: center;
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-            .leaderboard-preview {
-                max-width: 600px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1280px) {
-            .container {
-                max-width: 1280px;
-            }
-            #home h1 {
-                font-size: 8rem;
-                letter-spacing: 0.15em;
-            }
-        }
-        
-        /* Mobile-specific styles */
-        @media (max-width: 767px) {
-            #header nav {
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-            .logo-font {
-                font-size: 1.5rem;
-            }
-            #home {
-                padding-top: 4rem;
-            }
-            #home h1 {
-                font-size: 3rem;
-                letter-spacing: 0.05em;
-            }
-            .section-title {
-                font-size: 1.75rem;
-            }
-            .section-padding {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-            .event-card {
-                padding: 1.5rem;
-            }
-            .footer-content {
-                text-align: center;
-            }
-            .social-links {
-                margin-top: 1.5rem;
-                justify-content: center;
-            }
-            .hero-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .hero-left {
-                align-items: center;
-                text-align: center;
-            }
-            .leaderboard-preview {
-                width: 100%;
-            }
-            .leaderboard-tabs {
-                flex-wrap: wrap;
-            }
-            .leaderboard-tab {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-                flex: 1 0 auto;
-            }
-            .leaderboard-item {
-                padding: 0.5rem;
-            }
-            .player-name {
-                font-size: 0.9rem;
-            }
-            .player-college {
-                font-size: 0.7rem;
-            }
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            #gallery {
-                padding: 0 1rem;
             }
         }
 
@@ -1768,7 +1388,7 @@
                 </label>
             </nav>
         </div>
-         <!-- Mobile Menu -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu">
             <a href="#home">Home</a>
             <a href="#venue">Venue</a>
@@ -2187,5 +1807,3 @@
     
 </body>
 </html>
-
-
