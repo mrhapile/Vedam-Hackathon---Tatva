@@ -1,3 +1,9 @@
 {
-  "rewrites": [{ "source": "/:path*", "destination": "/landing-page/:path*" }]
+  "version": 2,
+  "builds": [
+    { "src": "landing-page/Landing-page.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/landing-page/Landing-page.html" }
+  ]
 }
